@@ -1,0 +1,9 @@
+body {
+    background-color: aliceblue;
+}
+
+#electionPoll {
+    width: 90%;
+    height: 900px;
+    margin: auto;
+}
