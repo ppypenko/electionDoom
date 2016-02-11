@@ -1,9 +1,17 @@
-body {
-    background-color: aliceblue;
+#electionHead {
+    width: 98%;
+    height: 100px;
+    margin: auto;
+    background-color: rgba(224, 22, 43, 0.9)
+}
+
+h1 {
+    text-align: center;
 }
 
 #electionPoll {
-    width: 90%;
-    height: 900px;
+    width: 98%;
+    height: 800px;
     margin: auto;
+    background-color: rgba(0, 82, 165, 0.9)
 }
