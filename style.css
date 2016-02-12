@@ -1,0 +1,58 @@
+#parent {
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+section {
+    margin: 0px;
+}
+
+#electionHead {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    background-color: rgba(224, 22, 43, 0.9);
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 20px;
+}
+
+ul,
+p {
+    margin: 0px;
+    text-align: center;
+}
+
+#electionPoll {
+    width: 100%;
+    height: 800px;
+    margin: 0px;
+    padding-top: 10px;
+    background-color: rgba(0, 82, 165, 0.9);
+}
+
+.poll {
+    width: 98%;
+    margin: auto;
+    background-color: white;
+}
+
+#tabs {
+    width: 98%;
+    margin: auto;
+}
+
+.dem {
+    background-color: rgba(0, 82, 165, 0.9);
+}
+
+.rep {
+    background-color: rgba(224, 22, 43, 0.9);
+}
