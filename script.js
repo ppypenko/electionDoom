@@ -37,7 +37,7 @@ window.pollsterPoll = function (incoming_data) {
         //console.log(incoming_data[i].method);
         //console.log(incoming_data[i].partisan);
         //        for (var j = 0; j < 3; j++) {
-        //            console.log(incoming_data[i].questions[j].name);
+            console.log(incoming_data[i].questions[j].name);
         //            for (var k = 0; k < incoming_data[i].questions[j].subpopulations[0].responses.length; k++) {
         //                //console.log(incoming_data[i].questions[j].subpopulations[0].responses[k].choice);
         //                //console.log(incoming_data[i].questions[j].subpopulations[0].responses[k].value);
