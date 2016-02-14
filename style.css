@@ -32,7 +32,7 @@ p {
 
 #electionPoll {
     width: 100%;
-    height: 800px;
+    height: auto;
     margin: 0px;
     padding-top: 10px;
     background-color: rgba(0, 82, 165, 0.9);
@@ -49,14 +49,26 @@ p {
     margin: auto;
 }
 
-.dem {
+.Dem {
     background-color: rgba(0, 82, 165, 1);
 }
 
-.rep {
+.Rep {
     background-color: rgba(224, 22, 43, 1);
 }
 
-.ind {
+.None {
     background-color: rgba(255, 255, 255, 1);
+}
+
+.question {
+    width: 80%;
+    margin-left: 30px;
+    margin-right: auto;
+}
+
+.reply {
+    width: 90%;
+    margin-left: 30px;
+    margin-right: auto;
 }
