@@ -56,8 +56,17 @@ window.pollsterPoll = function (incoming_data) {
                     var ctx = document.getElementById("answer-"+i +"-"+ j).getContext("2d");
                     var graph = new BarGraph(ctx);
                     graph.margin = 2;
-                    graph.width = 1000;
-                    graph.height = 300;
+                    if(incoming_data[i].questions[j].subpopulations[0].responses.length <= 3)
+                        {
+                            graph.width = 500;
+                            graph.height = 200;
+                        }
+                    else{
+                        graph.width = 1000;
+                        graph.height = 300;
+                    }
+                    
+                    
                     
                     for(k = 0; k < incoming_data[i].questions[j].subpopulations[0].responses.length; k += 1)
                         {
