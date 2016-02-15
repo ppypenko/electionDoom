@@ -72,3 +72,38 @@ p {
     margin-left: 30px;
     margin-right: auto;
 }
+
+#leftcurtain {
+    width: 50%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 2;
+    background-color: red;
+}
+
+#rightcurtain {
+    width: 50%;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    z-index: 3;
+    background-color: blue;
+}
+
+.curtain {
+    text-align: center;
+}
+
+.curtain img {
+    width: 90%;
+}
+
+.conf {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
