@@ -80,7 +80,7 @@ p {
     height: 100%;
     top: 0px;
     left: 0px;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     background-color: red;
 }
@@ -90,7 +90,7 @@ p {
     height: 100%;
     right: 0px;
     top: 0px;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     background-color: blue;
 }
