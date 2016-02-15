@@ -1,4 +1,5 @@
 "use strict";
+var picbox = [""];
 $.ajax({
     url: 'http://elections.huffingtonpost.com/pollster/api/polls.json?callback=pollsterPoll&page=3&state=US&topic=2016-president',
     dataType: 'script',
@@ -24,22 +25,9 @@ window.pollsterPoll = function (incoming_data) {
         //console.log(incoming_data[i].partisan);
         for (j = 0; j < incoming_data[i].questions.length; j += 1) {
             html += "<section class='question'>" +
-                "<h3>" + incoming_data[i].questions[j].name + "</h3>";
-            html += "<canvas id='answer-" + i + "-" + j + "'></canvas>";
-
-            //            var graph = new BarGraph(ctx);
-            //            graph.margin = 2;
-            //            graph.width = 450;
-            //            graph.height = 150;
-
-            for (k = 0; k < incoming_data[i].questions[j].subpopulations[0].responses.length; k += 1) {
-                html += "<section class='reply'>" +
-                    "<h4>" + incoming_data[i].questions[j].subpopulations[0].responses[k].choice + "</h4>" +
-                    "<h6>" + incoming_data[i].questions[j].subpopulations[0].responses[k].value + "</h6>" + "</section>";
-                //labelArr.push(incoming_data[i].questions[j].subpopulations[0].responses[k].choice);
-                //values.push(incoming_data[i].questions[j].subpopulations[0].responses[k].value);
-            }
-            html += "</section>";
+                "<h3>" + incoming_data[i].questions[j].name + "</h3>" +
+                "<canvas id='answer-" + i + "-" + j + "'></canvas>" +
+                "</section>";
             block.innerHTML = html;
 
         }
