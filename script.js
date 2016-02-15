@@ -212,25 +212,13 @@ function BarGraph(ctx) {
     };
 }
 
+
 window.onload = function () {
     $(function () {
         $("#tabs").tabs();
-    });
-};
+        $(".conf").click(function () {
 
-$(function () {
-    $("#tabs").tabs();
-});
-
-$(document).ready(function () {
-
-    $curtainopen = false;
-
-    $(".conf").click(function () {
-
-        $(this).blur();
-
-        if ($curtainopen == false) {
+            $(this).blur();
 
             $(this).stop().animate({
                 top: '0px'
@@ -245,12 +233,8 @@ $(document).ready(function () {
             $("#rightcurtain").stop().animate({
                 width: '0px'
             }, 2000);
-            $curtainopen = true;
 
-        }
 
-        return false;
-
+        });
     });
-
-});
+};
