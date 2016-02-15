@@ -22,6 +22,7 @@ window.pollsterPoll = function (incoming_data) {
         block = document.createElement("section");
         block.setAttribute("id", "tab-" + i);
         block.setAttribute("class", incoming_data[i].affiliation);
+        html += "<div class='" + incoming_data[i].affiliation + "'>";
         html += "<h2>Pollster: " + incoming_data[i].pollster + "</h2>" +
             "<h2>Affiliation: " + incoming_data[i].affiliation + "</h2>" +
             "<h2>Type of Poll: " + incoming_data[i].method + "</h2>";
@@ -185,7 +186,7 @@ function BarGraph(ctx) {
                 // Create gradient
                 gradient = ctx.createLinearGradient(0, 0, 0, graphAreaHeight);
                 gradient.addColorStop(1 - ratio, that.colors[i % that.colors.length]);
-                gradient.addColorStop(1, "#ffffff");
+//                gradient.addColorStop(1, "#ffffff");
 
                 ctx.fillStyle = gradient;
                 // Fill rectangle with gradient
@@ -243,8 +244,30 @@ function BarGraph(ctx) {
     };
 }
 
+
 window.onload = function () {
     $(function () {
         $("#tabs").tabs();
+        $(".conf").click(function () {
+
+            $(this).blur();
+
+            $(this).stop().animate({
+                top: '0px'
+            }, {
+                queue: false,
+                duration: 350,
+                easing: 'easeOutBounce'
+    });
+            $("#leftcurtain").animate({
+                width: '0px'
+            }, 2000);
+            $("#rightcurtain").animate({
+                width: '0px'
+            }, 2000);
+            $('#rephed').css("font-size", "0px");
+            $("#demhed").css("font-size", "0px");
+
+        });
     });
 };
