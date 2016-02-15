@@ -18,6 +18,7 @@ window.pollsterPoll = function (incoming_data) {
         e = 0,
         c = false,
         candidates = [];
+    console.log(incoming_data);
     for (i = 0; i < incoming_data.length; i += 1) {
         block = document.createElement("section");
         block.setAttribute("id", "tab-" + i);
@@ -25,6 +26,7 @@ window.pollsterPoll = function (incoming_data) {
         html += "<div class='" + incoming_data[i].affiliation + "'>";
         html += "<h2>Pollster: " + incoming_data[i].pollster + "</h2>" +
             "<h2>Affiliation: " + incoming_data[i].affiliation + "</h2>" +
+            "<h2>Partisan: " + incoming_data[i].partisan + "</h2>" +
             "<h2>Type of Poll: " + incoming_data[i].method + "</h2>";
         document.getElementById("tablinks").innerHTML += "<li><a href='#tab-" + i + "'>" + incoming_data[i].pollster + "</a></li>";
         for (j = 0; j < incoming_data[i].questions.length; j += 1) {
@@ -54,7 +56,6 @@ window.pollsterPoll = function (incoming_data) {
             }
             html += "<section class='pics'>";
             for (var m = 0; m < candidates.length; m += 1) {
-                console.log(candidates[m]);
                 html += "<img src='" + candidates[m] + "'>";
             }
             candidates = [];
@@ -186,7 +187,7 @@ function BarGraph(ctx) {
                 // Create gradient
                 gradient = ctx.createLinearGradient(0, 0, 0, graphAreaHeight);
                 gradient.addColorStop(1 - ratio, that.colors[i % that.colors.length]);
-//                gradient.addColorStop(1, "#ffffff");
+                //                gradient.addColorStop(1, "#ffffff");
 
                 ctx.fillStyle = gradient;
                 // Fill rectangle with gradient
@@ -258,7 +259,7 @@ window.onload = function () {
                 queue: false,
                 duration: 350,
                 easing: 'easeOutBounce'
-    });
+            });
             $("#leftcurtain").animate({
                 width: '0px'
             }, 2000);
