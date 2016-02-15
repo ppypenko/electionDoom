@@ -51,10 +51,12 @@ p {
 
 .Dem {
     background-color: rgb(0, 82, 165);
+    color: white;
 }
 
 .Rep {
     background-color: rgb(224, 22, 43);
+    color: white;
 }
 
 .None {
