@@ -17,7 +17,7 @@ window.pollsterPoll = function (incoming_data) {
         block = document.createElement("section");
         block.setAttribute("id", "tab-" + i);
         block.setAttribute("class", incoming_data[i].affiliation);
-        html += "<div class='"+ incoming_data[i].affiliation+"'>";
+        html += "<div class='" + incoming_data[i].affiliation + "'>";
         html += "<h2>Pollster: " + incoming_data[i].pollster + "</h2>" +
             "<h2>Affiliation: " + incoming_data[i].affiliation + "</h2>" +
             "<h2>Type of Poll: " + incoming_data[i].method + "</h2>";
@@ -227,13 +227,14 @@ window.onload = function () {
                 duration: 350,
                 easing: 'easeOutBounce'
             });
-            $("#leftcurtain").stop().animate({
+            $("#leftcurtain").animate({
                 width: '0px'
             }, 2000);
-            $("#rightcurtain").stop().animate({
+            $("#rightcurtain").animate({
                 width: '0px'
             }, 2000);
-
+            $('#rephed').css("font-size", "0px");
+            $("#demhed").css("font-size", "0px");
 
         });
     });

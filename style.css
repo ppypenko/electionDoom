@@ -103,6 +103,16 @@ p {
     width: 90%;
 }
 
+#rephed {
+    color: white;
+    font-family: serif;
+}
+
+#demhed {
+    color: white;
+    font-family: serif;
+}
+
 .conf {
     position: absolute;
     width: 100%;
