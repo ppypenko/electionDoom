@@ -50,15 +50,15 @@ p {
 }
 
 .Dem {
-    background-color: rgba(0, 82, 165, 1);
+    background-color: rgb(0, 82, 165);
 }
 
 .Rep {
-    background-color: rgba(224, 22, 43, 1);
+    background-color: rgb(224, 22, 43);
 }
 
 .None {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgb(255, 255, 255);
 }
 
 .question {
