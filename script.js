@@ -27,7 +27,7 @@ window.pollsterPoll = function (incoming_data) {
         for (j = 0; j < incoming_data[i].questions.length; j += 1) {
             html += "<section class='question'>" +
                 "<h3>" + incoming_data[i].questions[j].name + "</h3>" +
-                "<canvas id='answer-" + i + "-" + j + "'></canvas>" +
+                "<canvas id='answer-" + i + "-" + j + "' class='"+incoming_data[i].affiliation+"'></canvas>" +
                 "</section>";
             block.innerHTML = html;
 
