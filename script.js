@@ -1,5 +1,6 @@
 "use strict";
-var picbox = [""];
+var picbox = ["Carson", "Sanders", "Trump", "Johnson", "Clinton", "Bush", "Stein", "Kasich", "Rubio", "Fuente", "Cruz", "Chafee", "Lessig", "OMalley", "Webb", "Christie", "Fiorina", "Gilmore", "Graham", "Huckabee", "Jindal", "Pataki", "Paul", "Perry", "Santorum", "Walker", "Obama", "O'Malley"],
+    images = ["images/Ben Carson.png", "images/Bernie Sanders.png", "images/Donald Trump.png", "images/Gary Johnson.png", "images/Hillary Clinton.png", "images/Jeb Bush.png", "images/Jill Stein.png", "images/John R Kasich.png", "images/Marco Rubio.png", "images/Roque De La Fuente.jpg", "images/Ted Cruz.png", "images/Lincoln Chafee.png", "images/Lawrence Lessig.png", "images/Martin OMalley.png", "images/Jim Webb.png", "images/Chris Christie.png", "images/Carly Fiorina.png", "images/Jim Gilmore.png", "images/Lindsey Graham.png", "images/Mike Huckabee.png", "images/Bobby Jindal.png", "images/George Pataki.png", "images/Rand Paul.png", "images/Rick Perry.png", "images/Rick Santorum.png", "images/Scott Walker.png", "images/Obama.png", "images/Martin OMalley.png"];
 $.ajax({
     url: 'http://elections.huffingtonpost.com/pollster/api/polls.json?callback=pollsterPoll&page=3&state=US&topic=2016-president',
     dataType: 'script',
@@ -12,7 +13,11 @@ window.pollsterPoll = function (incoming_data) {
         block,
         i = 0,
         j = 0,
-        k = 0;
+        k = 0,
+        b = 0,
+        e = 0,
+        c = false,
+        candidates = [];
     for (i = 0; i < incoming_data.length; i += 1) {
         block = document.createElement("section");
         block.setAttribute("id", "tab-" + i);
@@ -21,18 +26,47 @@ window.pollsterPoll = function (incoming_data) {
             "<h2>Affiliation: " + incoming_data[i].affiliation + "</h2>" +
             "<h2>Type of Poll: " + incoming_data[i].method + "</h2>";
         document.getElementById("tablinks").innerHTML += "<li><a href='#tab-" + i + "'>" + incoming_data[i].pollster + "</a></li>";
-
-        //console.log(incoming_data[i].partisan);
         for (j = 0; j < incoming_data[i].questions.length; j += 1) {
             html += "<section class='question'>" +
-                "<h3>" + incoming_data[i].questions[j].name + "</h3>" +
-                "<canvas id='answer-" + i + "-" + j + "'></canvas>" +
+                "<h3>" + incoming_data[i].questions[j].name + "</h3>";
+
+            for (k = 0; k < picbox.length; k += 1) {
+                if (incoming_data[i].questions[j].name.indexOf(picbox[k]) > -1) {
+                    candidates.push(images[k]);
+                }
+            }
+            for (k = 0; k < incoming_data[i].questions[j].subpopulations[0].responses.length; k += 1) {
+                for (b = 0; b < picbox.length; b += 1) {
+                    if (incoming_data[i].questions[j].subpopulations[0].responses[k].choice.indexOf(picbox[b]) > -1) {
+                        for (var e = 0; e < candidates.length; e += 1) {
+                            if (candidates[e].indexOf(picbox[b]) > -1) {
+                                c = true;
+                                break;
+                            }
+                        }
+                        if (!c) {
+                            candidates.push(images[b]);
+                        }
+                        c = false;
+                    }
+                }
+            }
+            html += "<section class='pics'>";
+            for (var m = 0; m < candidates.length; m += 1) {
+                console.log(candidates[m]);
+                html += "<img src='" + candidates[m] + "'>";
+            }
+            candidates = [];
+            html += "</section>";
+
+            html += "<canvas id='answer-" + i + "-" + j + "'></canvas>" +
                 "</section>";
             block.innerHTML = html;
 
         }
         document.getElementById("tabs").appendChild(block);
         html = "";
+
     }
 
     for (i = 0; i < incoming_data.length; i += 1) {
@@ -59,8 +93,6 @@ window.pollsterPoll = function (incoming_data) {
 
             }
 
-            console.log(labelArr);
-            console.log(values);
             graph.xAxisLabelArr = labelArr;
             graph.update(values);
             labelArr = [];
@@ -78,19 +110,19 @@ function BarGraph(ctx) {
 
     var draw = function (arr) {
 
-        var numOfBars = arr.length;
-        var barWidth;
-        var barHeight;
-        var border = 2;
-        var ratio;
-        var maxBarHeight;
-        var gradient;
-        var largestValue;
-        var graphAreaX = 0;
-        var graphAreaY = 0;
-        var graphAreaWidth = that.width;
-        var graphAreaHeight = that.height;
-        var i;
+        var numOfBars = arr.length,
+            barWidth,
+            barHeight,
+            border = 2,
+            ratio,
+            maxBarHeight,
+            gradient,
+            largestValue,
+            graphAreaX = 0,
+            graphAreaY = 0,
+            graphAreaWidth = that.width,
+            graphAreaHeight = that.height,
+            i;
 
         // Update the dimensions of the canvas only if they have changed
         if (ctx.canvas.width !== that.width || ctx.canvas.height !== that.height) {
